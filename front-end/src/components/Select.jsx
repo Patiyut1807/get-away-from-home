@@ -42,23 +42,23 @@
 //   />
 // );
 
-import React, { useState } from 'react';
-import Select from 'react-select';
+import React, { useState } from "react";
+import Select from "react-select";
 
 const options = [
-  { value: 'chocolate', label: 'Chocolate' },
-  { value: 'strawberry', label: 'Strawberry' },
-  { value: 'vanilla', label: 'Vanilla' },
+  { value: "chocolate", label: "Chocolate" },
+  { value: "strawberry", label: "Strawberry" },
+  { value: "vanilla", label: "Vanilla" },
 ];
 
 export default function SelectComponent() {
   const [selectedOption, setSelectedOption] = useState(null);
-
+  console.log(selectedOption);
   return (
     <div className="select">
       <Select
         value={selectedOption}
-        onChange={setSelectedOption}
+        onChange={(selected) =>setSelectedOption(select)}
         options={options}
       />
     </div>

@@ -1,39 +1,53 @@
 import React, { useState } from "react";
-import Select from 'react-select';
+import Select from "react-select";
 
-
-const optionSS = [
-    { value: 'chocolate', label: 'Chocolate' },
-    { value: 'strawberry', label: 'Strawberry' },
-    { value: 'vanilla', label: 'Vanilla' },
+function Card() {
+  const [roomSelected, setroomSelected] = useState(null);
+  const [genderSelected, setgenderSelected] = useState(null);
+  let [text, setText] = useState(null);
+  const roomType = [
+    { value: "พัดลม", label: "พัดลม" },
+    { value: "แอร์", label: "แอร์" },
+    { value: "สูท", label: "สูท" },
   ];
-  
-  const SelectComponent=(options)=> {
-    const [selectedOption, setSelectedOption] = useState(null);
-  
+  let gender = [
+    { value: "ชาย", label: "ชาย" },
+    { value: "หญิง", label: "หญิง" },
+    { value: "รวม", label: "รวม" },
+  ];
+
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    console.log(
+      event.target[2].value,
+      roomSelected.value,
+      genderSelected.value
+    );
+  };
+
+  const RoomSelectComponent = (options) => {
     return (
       <div className="select">
         <Select
-          value={selectedOption}
-          onChange={setSelectedOption}
+          value={roomSelected}
+          onChange={setroomSelected}
           options={options}
         />
       </div>
     );
-  }
+  };
+  const GenderSelectComponent = (options) => {
+    return (
+      <div className="select">
+        <Select
+          value={genderSelected}
+          onChange={setgenderSelected}
+          options={options}
+        />
+      </div>
+    );
+  };
 
-
-
-
-function Card() {
-  let [text, setText] = useState(null);
-  let roomType = ["พัดลม", "แอร์", "สูท"];
-  let gender = ["ชาย", "หญิง", "รวม"];
-
-  const handleSubmit = (event) => {
-    event.preventDefault();
-    console.log(event);
-  }
   return (
     <div
       className="card"
@@ -49,10 +63,11 @@ function Card() {
       }}
     >
       <form onSubmit={handleSubmit}>
+        <label>ประเภทหอ{GenderSelectComponent(gender)}</label>
+        <label>ประเภทห้อง{RoomSelectComponent(roomType)}</label>
         <label>
-            {SelectComponent(optionSS)}
-          Name:
-          <input type="text" name="name" />
+          price <br/>
+          <input type="text" name="price" />
         </label>
         <input type="submit" value="Submit" />
       </form>
