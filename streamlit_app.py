@@ -2,7 +2,14 @@ import streamlit as st
 import pandas as pd
 
 st.write("Here's our first attempt at using data to create a table:")
-st.write(pd.DataFrame({
-    'first column': [1, 2, 3, 4],
-    'second column': [10, 20, 30, 40]
-}))
+choice = st.selectbox(
+
+    'Select the items you want?',
+
+    ('Pen','Pencil','Eraser','Sharpener','Notebook'))
+
+
+
+#displaying the selected option
+
+st.write('You have selected:', choice)
