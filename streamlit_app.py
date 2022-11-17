@@ -1,6 +1,6 @@
 import streamlit as st
 import pandas as pd
-
+from calculate import calculate
 
 st.header("เบื่อแล้วอยู่บ้าน อยู่หอดีกว่า: 👏")
 st.write("เว็บแอพสำหรับช่วยในการตัดสินใจเลือกหอพัก")
@@ -17,5 +17,5 @@ room = st.selectbox(
 price = st.slider('Price?', 2000, 12000, 4000)
 distance = st.slider('Distance?', 900, 3000, 1000)
 # distanceCheck = st.checkbox('I agree')
-
+st.write(calculate(room, price, gender, distance))
 #displaying the selected option
