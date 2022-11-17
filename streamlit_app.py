@@ -4,18 +4,18 @@ from calculate import calculate
 
 st.header("เบื่อแล้วอยู่บ้าน อยู่หอดีกว่า: 👏")
 st.write("เว็บแอพสำหรับช่วยในการตัดสินใจเลือกหอพัก")
-gender = st.selectbox(
+gender = str(st.selectbox(
 
     'Select the gender?',
 
-    ('รวม', 'หญิง', 'ชาย'))
-room = st.selectbox(
+    ('รวม', 'หญิง', 'ชาย')))
+room = str(st.selectbox(
 
     'Select the Room type?',
 
-    ('แอร์', 'พัดลม', 'สูท'))
-price = st.slider('Price?', 2000, 12000, 4000)
-distance = st.slider('Distance?', 900, 3000, 1000)
+    ('แอร์', 'พัดลม', 'สูท')))
+price = str(st.slider('Price?', 2000, 12000, 4000))
+distance = str(st.slider('Distance?', 900, 3000, 1000))
 # distanceCheck = st.checkbox('I agree')
 
 # displaying the selected option
