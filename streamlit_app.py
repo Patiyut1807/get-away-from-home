@@ -17,5 +17,8 @@ room = st.selectbox(
 price = st.slider('Price?', 2000, 12000, 4000)
 distance = st.slider('Distance?', 900, 3000, 1000)
 # distanceCheck = st.checkbox('I agree')
-st.write(calculate(room, price, gender, distance))
+if st.button('คำนวณ'):
+    st.write('Why hello there')
+else:
+    st.write('Goodbye')
 #displaying the selected option
