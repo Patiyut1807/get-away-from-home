@@ -21,7 +21,7 @@ distance = st.slider('Distance?', 900, 3000, 1000)
 # displaying the selected option
 col1, col2, col3 = st.columns(3)
 
-with col3:
+with col2:
     if st.button('คำนวณ'):
         st.write('Why hello there')
     else:
