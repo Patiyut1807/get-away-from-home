@@ -14,8 +14,8 @@ room = str(st.selectbox(
     'เลือกประเภทห้องพัก?',
 
     ('แอร์', 'พัดลม', 'สูท')))
-price = str(st.slider('ค่าเช่า?', 2000, 12000, 4000))
-distance = str(st.slider('ระยะทาง?', 900, 3000, 1000))
+price = str(st.slider('ค่าเช่า?', 2000, 12000, 4000,100))
+distance = str(st.slider('ระยะทาง?', 900, 3000, 1000,100))
 # distanceCheck = st.checkbox('I agree')
 
 # displaying the selected option
