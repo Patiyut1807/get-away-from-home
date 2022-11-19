@@ -8,14 +8,14 @@ gender = str(st.selectbox(
 
     'เลือกประเภทหอพัก?',
 
-    ('รวม', 'หญิง', 'ชาย')))
+    ('รวม', 'ชาย', 'หญิง')))
 room = str(st.selectbox(
 
     'เลือกประเภทห้องพัก?',
 
     ('แอร์', 'พัดลม', 'สูท')))
-price = str(st.slider('ค่าเช่า?', 2000, 12000, 4000,100))
-distance = str(st.slider('ระยะทาง?', 900, 3000, 1000,100))
+price = str(st.slider('ค่าเช่า?', 2000, 12000, 4000, 100))
+distance = str(st.slider('ระยะทาง?', 900, 2500, 1000, 100))
 # distanceCheck = st.checkbox('I agree')
 
 # displaying the selected option
@@ -26,11 +26,11 @@ with col2:
         data = calculate(room, price, gender, distance)
 if data != "":
     st.write(pd.DataFrame({
-    'ชื่อหอ': [i[0][0] for i in data],
-    'ประเภทห้อง': [i[0][1] for i in data],
-    'ค่าเช่า': [i[0][2] for i in data],
-    'ประเภทหอ': [i[0][3] for i in data],
-    'ซอย': [i[0][4] for i in data],
-    'ระยะทาง': [i[0][5] for i in data],
-    'ค่าความคล้าย': [i[1] for i in data],
-}))
+        'ชื่อหอ': [i[0][0] for i in data],
+        'ประเภทห้อง': [i[0][1] for i in data],
+        'ค่าเช่า': [i[0][2] for i in data],
+        'ประเภทหอ': [i[0][3] for i in data],
+        'ซอย': [i[0][4] for i in data],
+        'ระยะทาง': [i[0][5] for i in data],
+        'ค่าความคล้าย': [i[1] for i in data],
+    }))
