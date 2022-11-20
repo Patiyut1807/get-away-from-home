@@ -1,4 +1,5 @@
 import csv
+import pandas as pd
 import numpy as np
 
 
@@ -27,11 +28,14 @@ def calculate(in_type, in_price, in_gender, in_distance):
     x = np.array([typeIndex, price, genderIndex, distance])
     max = -1
 
+    # วน loop ในข้อมูลหอ(list คือ list ของข้อมูลหอ)
     for item in list:
-        y = np.array([type.index(item[1]), float(int(item[2]) / 1000),
-                     gender.index(item[3]), float(int(item[5]) / 1000)])
+        y = np.array([type.index(item[1]), float(int(item[2]) / 1000), gender.index(item[3]), float(int(item[5]) / 1000)])
+
+        # คำนวณค่า Pearson โดยเปรียบเทียบข้อมูลผู้ใช้(x) กับข้อมูลของหอ(y)
         r = np.corrcoef(x, y)[0][1]
 
+        # เปรียบเทียบหาหอที่มีค่า Pearson มากที่สุด
         if r > max:
             max = r
             data = [[item, r]]
@@ -46,5 +50,10 @@ def calculate(in_type, in_price, in_gender, in_distance):
     arrayData = np.array(matrixData)
     corrMatrix = np.corrcoef(arrayData)
 
-    return data, corrMatrix
+    # ใส่ string "ผู้ใช้" เข้าไปที่ index 0 ของ list เพื่อนำไปตั้งชื่อ column ใน dataframe
+    list.insert(0, ["ผู้ใช้"])
+    corrDF = pd.DataFrame(corrMatrix, columns=('%s' % list[i][0] for i in range(len(list))))
+
+    return data, corrDF
+
 
