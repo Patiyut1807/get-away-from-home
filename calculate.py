@@ -42,11 +42,14 @@ def calculate(in_type, in_price, in_gender, in_distance):
         elif r == max:
             data.append([item, r])
 
+    # รับค่า Vector ผู้ใช้ลง MatrixData
     matrixData = [[typeIndex, price, genderIndex, distance]]
 
+    # รับค่า Vector ข้อมูลของหอทุกหอพักลงใน MatrixData
     for i in range(len(list)):
         matrixData.append([type.index(list[i][1]), float(int(list[i][2])/1000), gender.index(list[i][3]), float(int(list[i][5])/1000)])
 
+    # สร้าง Correlation Matrix
     arrayData = np.array(matrixData)
     corrMatrix = np.corrcoef(arrayData)
 
@@ -56,9 +59,8 @@ def calculate(in_type, in_price, in_gender, in_distance):
     # ใส่เลขกำกับ column หน้าชื่อหอทุกหอ เพื่อไม่ให้เกิด ValueError เพราะชื่อหอซ้ำ
     for i in range(len(list)):
         list[i][0] = "{} ".format(i) + list[i][0]
-        
     corrDF = pd.DataFrame(corrMatrix, columns=['%s' % list[i][0] for i in range(len(list))])
-    
+
     return data, corrDF
 
 
