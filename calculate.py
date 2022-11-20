@@ -1,5 +1,4 @@
 import csv
-import math
 import numpy as np
 
 
@@ -39,12 +38,13 @@ def calculate(in_type, in_price, in_gender, in_distance):
         elif r == max:
             data.append([item, r])
 
-    test = []
-    for i in range(len(list)):
-        test.append([type.index(list[i][1]), float(int(list[i][2])/1000),
-                    gender.index(list[i][3]), float(int(list[i][5])/1000)])
-    test.append([typeIndex, price, genderIndex, distance])
-    test2 = np.array(test)
+    matrixData = [[typeIndex, price, genderIndex, distance]]
 
-    real = np.corrcoef(test2)
-    return data, real
+    for i in range(len(list)):
+        matrixData.append([type.index(list[i][1]), float(int(list[i][2])/1000), gender.index(list[i][3]), float(int(list[i][5])/1000)])
+
+    arrayData = np.array(matrixData)
+    corrMatrix = np.corrcoef(arrayData)
+
+    return data, corrMatrix
+
