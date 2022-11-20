@@ -52,7 +52,7 @@ def calculate(in_type, in_price, in_gender, in_distance):
 
     # ใส่ string "ผู้ใช้" เข้าไปที่ index 0 ของ list เพื่อนำไปตั้งชื่อ column ใน dataframe
     list.insert(0, ["ผู้ใช้"])
-    corrDF = pd.DataFrame(corrMatrix, columns=('%s' % list[i][0] for i in range(len(list))))
+    corrDF = pd.DataFrame(corrMatrix, columns=['%s' % list[i][0] for i in range(len(list))])
 
     return data, corrDF
 
