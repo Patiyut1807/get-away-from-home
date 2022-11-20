@@ -26,7 +26,7 @@ with col2:
         data, data_frame = calculate(room, price, gender, distance)
 if data != "":
     st.write(pd.DataFrame({
-        'ชื่อหอ': [i[0][0] for i in data],
+        # 'ชื่อหอ': [i[0][0] for i in data],
         'ประเภทห้อง': [i[0][1] for i in data],
         'ค่าเช่า': [i[0][2] for i in data],
         'ประเภทหอ': [i[0][3] for i in data],
