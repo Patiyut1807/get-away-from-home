@@ -23,7 +23,7 @@ col1, col2, col3 = st.columns(3)
 data = ""
 with col2:
     if st.button('คำนวณ'):
-        data = calculate(room, price, gender, distance)
+        data, data_frame = calculate(room, price, gender, distance)
 if data != "":
     st.write(pd.DataFrame({
         'ชื่อหอ': [i[0][0] for i in data],
@@ -34,3 +34,4 @@ if data != "":
         'ระยะทาง': [i[0][5] for i in data],
         'ค่าความคล้าย': [i[1] for i in data],
     }))
+    st.table(data_frame)
